@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/normalize.css' />
+  <link rel="stylesheet" href="/stylesheets/iconfont.css" />
+  <script src='/javascripts/jq.js'></script>
+  <script src="https://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  
+  <h1 class='title'>
+    <%= title %>
+  </h1>
+  <table style='border:1px solid #ccc;width: 100%;word-break: break-all'  >
+    <tr><td style='width:40%; font-weight: 700'>timestamp</td><td><%=timestamp%></td></tr>
+    <tr><td style='width:40%; font-weight: 700'>nonceStr</td><td><%=nonceStr%></td></tr>
+    <tr><td style='width:40%; font-weight: 700'>signature</td><td><%=signature%></td></tr>
+  </table>
+  <style>
+    .title{
+      font-size:1rem;
+      background-color: #f60;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+    }
+
+  </style>
+  <script>
+  //  function refreshRem(){
+  //     let html = document.getElementsByTagName('html')[0];
+  //     let width = html.getBoundingClientRect().width;
+  //     console.log("html",width);
+  //     html.style.fontSize = width/25+'px';
+  //     console.log("html",html.style.fontSize);
+  //   }
+  //   refreshRem();
+  //   window.addEventListener(
+  //     "resize",
+  //     () => {
+  //       clearTimeout(this.tid);
+  //       this.tid = setTimeout(refreshRem, 300);
+  //     },
+  //     false
+  //   );
+    wx.config({
+      debug: true,  //开启此功能会在web开发者工具--alert弹窗
+      appId: 'wxd78d8d7237d1d84b',
+      timestamp: "<%=timestamp%>", 
+      nonceStr: "<%=nonceStr%>",
+      signature: "<%=signature%>",
+      jsApiList: [
+        'getLocation',
+        'onMenuShareTimeline',
+        'onMenuShareAppMessage',
+        'onMenuShareQQ'
+      ]
+    });
+
+    wx.error((res) => {
+      console.log('res', res);
+    })
+
+    wx.ready(function () {
+      console.log('error');
+    })
+    // "updateAppMessageShareData",
+    // "updateTimelineShareData",
+    // "onMenuShareTimeline",
+    // "onMenuShareAppMessage",        
+    // "onMenuShareQQ",
+    // "onMenuShareWeibo",
+    // "onMenuShareQZone",
+    // "onVoiceRecordEnd",
+    // "playVoice",
+    // "pauseVoice",
+    // "stopVoice",
+    // "onVoicePlayEnd",
+    // "uploadVoice",
+    // "downloadVoice",
+    // "chooseImage",
+    // "previewImage",
+    // "uploadImage",
+    // "downloadImage",
+    // "translateVoice",
+    // "getNetworkType",
+    // "openLocation",
+    // "getLocation",
+    // "hideOptionMenu",
+    // "showOptionMenu",
+    // "hideMenuItems",
+    // "showMenuItems",
+    // "hideAllNonBaseMenuItem",
+    // "showAllNonBaseMenuItem",
+    // "closeWindow",
+    // "scanQRCode",
+    // "chooseWXPay",
+    // "openProductSpecificView",
+    // "addCard",
+    // "chooseCard",
+    // "openCard"
+
+  </script>
+</body>
+
+</html>
